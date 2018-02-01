@@ -1,19 +1,17 @@
 //Dependencies
-var express = express("express");
-var mongojs = require("mongojs");
-var expressHandlebars = ("express-handlebars";)
+var express = require("express");
+var mongoose = require("mongoose");
+var expressHandlebars = require("express-handlebars");
 var request = require("request");
 var bodyParser = require("body-parser");
-
-
+var logger = require("morgan");
+var mongojs = require("mongojs");
 // Scraping tools
 // Axios is a promised-based http library, similar to jQuery's Ajax method
 // It works on the client and on the server
 var axios = require("axios");
 var cheerio = require("cheerio");
 
-// Require all models
-var db = require("./models");
 
 var PORT = 3000;
 
@@ -23,14 +21,26 @@ var app = express();
 // Database configuration
 var databaseUrl = "scraper";
 var collections = ["scrapedData"];
+// var db = "mongodb://localhost/scraper";
 
-// Hook mongojs configuration to the db variable
+// Creates the database
+// mongoose.connect(db, function(err){
+// 	useMongoClient: true
+//   if (err) {
+//     console.log(err)
+//   }
+//   else {
+//     console.log('Success!')
+//   }
+// });
+console.log('starting connection....');
+// connect to mongodb
 var db = mongojs(databaseUrl, collections);
-db.on('connect', function () {
-    console.log('Your database is connected!');
+db.on('connect', function() {
+    console.log("news database is connected");
 })
-db.on("error", function(error) {
-  console.log("Database Error:", error);
+db.on("error", function() {
+    console.log("database error: ", error);
 });
 
 // Main route (simple Hello World Message)

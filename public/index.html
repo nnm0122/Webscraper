@@ -2,10 +2,13 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Mongoose Scraper</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Scraping With Mongoose</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+
     <style>
-      body { background-color: #F2F6D0 }
+      body { background-color: #cceeff }
       #wrapper {
         width: 960px;
         margin-left: auto;
@@ -25,7 +28,7 @@
       textarea, input {
         display: block;
         width: 100%;
-        background-color: #304740;
+        background-color: #FCF5C7;
       }
       input {
         height: 36px;
@@ -36,15 +39,49 @@
         font-size: 18px;
       }
     </style>
+
+<script>
+function blinktext() {
+  var f= document.getElementById("announcement");
+  setInterval(function() {
+    f.style.visibility = (f.style.visibility == "hidden" ? "" : "hidden");  
+  }, 1500);
+}
+</script>
+
+
   </head>
-  <body>
+  <<body onload = "blinktext ();">
     <div id="wrapper">
-      <h1>Note Scraper</h1>
-      <button class="button btn-large" onclick = "window.location.href='./saved.html'">Saved Articles</button>
-      <button id = "scrape" class="btn-large">Scrape</button>
-      <h1></h1>
+      <div style= "text-align: center;" id ="announcement"><h1>
+          <span style="color:#a3297a">W</span>
+          <span style="color:#0000ff">E</span>
+          <span style="color:#00b33c">L</span>
+          <span style="color:#b30000">C</span>
+          <span style="color:#000000">O</span>
+          <span style="color:#0000ff">M</span>
+          <span style="color:#e6005c">E</span>
+          <span style="color:#a3297a">t</span>
+          <span style="color:#66ff33">o</span>
+          <span style="color:#000000">M</span>
+          <span style="color:#e6005c">O</span>
+          <span style="color:##0000ff">N</span>
+          <span style="color:#00b33c">G</span>
+          <span style="color:#66ff33">O</span>
+          <span style="color:#000000">S</span>
+          <span style="color:##a3297a">C</span>
+          <span style="color:##e6005c">R</span>
+          <span style="color:#cc0000">A</span>
+          <span style="color:#5#0000ff">P</span>
+          <span style="color:#5#cc0000">P</span>
+          <span style="color:#00b33c">I</span>
+          <span style="color:#e6005c">N</span>
+          <span style="color:#a3297a">G!</span>
+<!--  Welcome to Mongo Scrapping!</h1> --></div>
+      <h2><i>Click on an article to review and add notes if you like!</i></h2>
+      <br><br>
       <div id="articles"></div>
-      <!-- <div id="notes"></div> -->
+      <div id="notes"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="app.js"></script>
